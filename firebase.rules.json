@@ -1,0 +1,18 @@
+{
+  "rules": {
+    "rooms": {
+      "$roomCode": {
+        ".read": true,
+        ".write": true,
+        ".validate": "$roomCode.length === 6 && $roomCode.matches(/^[A-Z0-9]+$/)",
+        "submissions": {
+          "$questionId": {
+            "$nickname": {
+              ".write": "!data.exists() || !data.child('submittedAt').exists() || newData.child('score').exists()"
+            }
+          }
+        }
+      }
+    }
+  }
+}

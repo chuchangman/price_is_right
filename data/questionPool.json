@@ -1,0 +1,59 @@
+[
+  {
+    "id": "q001",
+    "productName": "다이슨 에어랩 멀티스타일러",
+    "category": "beauty",
+    "imageUrl": "/images/products/dyson-airwrap.jpg",
+    "actualPrice": 779000
+  },
+  {
+    "id": "q002",
+    "productName": "닌텐도 스위치 OLED",
+    "category": "leisure",
+    "imageUrl": "/images/products/nintendo-switch-oled.jpg",
+    "actualPrice": 415000
+  },
+  {
+    "id": "q003",
+    "productName": "애플 에어팟 프로 2세대",
+    "category": "electronics",
+    "imageUrl": "/images/products/airpods-pro-2.jpg",
+    "actualPrice": 349000
+  },
+  {
+    "id": "q004",
+    "productName": "삼양 불닭볶음면 40입 박스",
+    "category": "food",
+    "imageUrl": "/images/products/buldak-40pack.jpg",
+    "actualPrice": 38900
+  },
+  {
+    "id": "q005",
+    "productName": "LG 퓨리케어 정수기",
+    "category": "appliance",
+    "imageUrl": "/images/products/lg-water-purifier.jpg",
+    "actualPrice": 1484000
+  },
+  { "id": "q006", "productName": "LG 코드제로 A9 오브제 물걸레 청소기", "category": "appliance", "imageUrl": "/images/products/lg-codezero-a9.jpg", "actualPrice": 1559400 },
+  { "id": "q007", "productName": "유니트리 GO2 PRO 4족보행 로봇", "category": "etc", "imageUrl": "/images/products/unitree-go2-pro.jpg", "actualPrice": 5990000 },
+  { "id": "q008", "productName": "오쿠 전기 보온밥솥 3-4인용", "category": "appliance", "imageUrl": "/images/products/ocoo-rice-cooker.jpg", "actualPrice": 32900 },
+  { "id": "q009", "productName": "삼성 비스포크 콤보 WD90H25", "category": "appliance", "imageUrl": "/images/products/samsung-bespoke-combo.jpg", "actualPrice": 4269840 },
+  { "id": "q010", "productName": "LG 스탠바이미 27인치 TV", "category": "electronics", "imageUrl": "/images/products/lg-standbyme-tv.jpg", "actualPrice": 750000 },
+  { "id": "q011", "productName": "테팔 무선 전기주전자 1L", "category": "appliance", "imageUrl": "/images/products/tefal-electric-kettle.jpg", "actualPrice": 69900 },
+  { "id": "q012", "productName": "boswizz 2채널 USB 사운드바", "category": "electronics", "imageUrl": "/images/products/boswizz-soundbar.jpg", "actualPrice": 15800 },
+  { "id": "q013", "productName": "LG 디오스 양문형 냉장고 832L", "category": "appliance", "imageUrl": "/images/products/lg-dios-fridge.jpg", "actualPrice": 1350000 },
+  { "id": "q014", "productName": "HHKB Professional HYBRID Type-S 키보드", "category": "electronics", "imageUrl": "/images/products/hhkb-hybrid-type-s.jpg", "actualPrice": 340000 },
+  { "id": "q015", "productName": "로지텍 MX Vertical 버티컬 마우스", "category": "electronics", "imageUrl": "/images/products/logitech-mx-vertical.jpg", "actualPrice": 130000 },
+  { "id": "q016", "productName": "3Dconnexion SpaceMouse Wireless", "category": "electronics", "imageUrl": "/images/products/spacemouse-wireless.jpg", "actualPrice": 375000 },
+  { "id": "q017", "productName": "스펜더 Classic 1/2 스피커", "category": "electronics", "imageUrl": "/images/products/spendor-classic-1-2.jpg", "actualPrice": 8400000 },
+  { "id": "q018", "productName": "HP OMEN MAX 45L 게이밍 PC (M.2 16TB + SSD 16TB)", "category": "electronics", "imageUrl": "/images/products/hp-omen-max-45l.jpg", "actualPrice": 23600000 },
+  { "id": "q022", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q023", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q024", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q025", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q026", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q027", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q028", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q029", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 },
+  { "id": "q030", "productName": "TODO", "category": "etc", "imageUrl": "/images/products/FILENAME.jpg", "actualPrice": 0 }
+]
