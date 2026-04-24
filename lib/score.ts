@@ -1,17 +1,25 @@
 import { PLAYING_DURATION_MS } from "./types";
 
+// 점수 공식 v2 설정
+const TIME_MAX = 30;                  // 시간 점수 최대
+const ACCURACY_MAX = 70;              // 정답 점수 최대
+const FREE_TIME_MS = 3000;            // 3초까지는 시간 만점 (사람 반응속도 한계)
+const ACCURACY_BUCKET_SIZE = 0.05;    // 5% 단위로 구간 나눔
+const ACCURACY_BUCKET_PENALTY = 3.5;  // 구간당 감점 (70점 / 20구간 = 3.5점)
+
 /**
- * 점수 공식:
- *   최종 점수 = 100 × 시간점수 × 정확도점수
+ * 점수 공식 v2:
+ *   최종 점수 = 시간점수 (0~30) + 정답점수 (0~70) — 독립 합산
  *
- *   시간점수 = 0.3 + 0.7 × (1 - elapsedMs / 10000)
- *     - 즉시 제출 (0ms):   1.0
- *     - 10초 직전 (10000): 0.3
- *     - 미제출/시간초과:  0
+ *   시간점수 (30점 만점):
+ *     · 0~3초: 30점 (사람 반응속도 한계, 1초컷 방지)
+ *     · 3~10초: 선형 감소 (30 → 0)
+ *     · 10초 초과 / 미제출: 0
  *
- *   정확도 = max(0, 1 - |guess - actual| / actual)
- *     - 정답 일치: 1.0
- *     - ±100% 이탈 이상: 0
+ *   정답점수 (70점 만점):
+ *     · 오차율을 5% 단위로 20구간 분할
+ *     · 구간당 3.5점씩 감점
+ *     · 0~5%: 70점, 5~10%: 66.5점, ..., 95~100%: 3.5점, 100%+: 0점
  */
 export function calcScore(
   guess: number | null | undefined,
@@ -29,12 +37,23 @@ export function calcScore(
     return 0;
   }
 
-  const timeScore = 0.3 + 0.7 * (1 - elapsedMs / PLAYING_DURATION_MS);
-  const errorRatio = Math.abs(guess - actualPrice) / actualPrice;
-  const accuracy = Math.max(0, 1 - errorRatio);
+  // 시간 점수 (40점 만점)
+  const overFreeMs = Math.max(0, elapsedMs - FREE_TIME_MS);
+  const decayWindow = PLAYING_DURATION_MS - FREE_TIME_MS; // 7000ms
+  const timeRatio = Math.max(0, 1 - overFreeMs / decayWindow);
+  const timeScore = TIME_MAX * timeRatio;
 
-  // 소수 둘째자리까지 반올림
-  return Math.round(100 * timeScore * accuracy * 100) / 100;
+  // 정답 점수 (60점 만점)
+  const errorRatio = Math.abs(guess - actualPrice) / actualPrice;
+  const buckets = Math.floor(errorRatio / ACCURACY_BUCKET_SIZE);
+  const accuracyScore = Math.max(
+    0,
+    ACCURACY_MAX - buckets * ACCURACY_BUCKET_PENALTY
+  );
+
+  // 합산 후 소수 둘째자리까지
+  const total = timeScore + accuracyScore;
+  return Math.round(total * 100) / 100;
 }
 
 export function formatPrice(price: number): string {
