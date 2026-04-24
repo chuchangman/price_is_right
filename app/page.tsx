@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import { ref, get, set, serverTimestamp } from "firebase/database";
+import { ref, get, set } from "firebase/database";
 import { db } from "@/lib/firebase";
 import { validateNickname, validateRoomCode, sanitizeNickname } from "@/lib/roomCode";
 
@@ -60,8 +60,8 @@ export default function HomePage() {
 
       // 플레이어 등록
       await set(ref(db, `rooms/${code}/players/${nick}`), {
-        joinedAt: playerSnap.exists() ? playerSnap.val().joinedAt : serverTimestamp(),
-        lastSeenAt: serverTimestamp(),
+        joinedAt: playerSnap.exists() ? playerSnap.val().joinedAt : Date.now(),
+        lastSeenAt: Date.now(),
         totalScore: playerSnap.exists() ? playerSnap.val().totalScore || 0 : 0,
       });
 

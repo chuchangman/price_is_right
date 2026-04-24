@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ref, onValue, set, get, update, remove, serverTimestamp } from "firebase/database";
+import { ref, onValue, set, get, update, remove } from "firebase/database";
 import { db } from "@/lib/firebase";
 import {
   Category,
@@ -209,7 +209,7 @@ function RoomCreator({ onCreated, onLogout }: RoomCreatorProps) {
 
       await set(ref(db, `rooms/${code}`), {
         meta: {
-          createdAt: serverTimestamp(),
+          createdAt: Date.now(),
           questionsTotal: questionCount,
           currentIndex: -1,
         } as RoomMeta,

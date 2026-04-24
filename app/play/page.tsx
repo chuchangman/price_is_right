@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
-import { ref, onValue, set, get, serverTimestamp } from "firebase/database";
+import { ref, onValue, set, get } from "firebase/database";
 import { db } from "@/lib/firebase";
 import {
   Phase,
@@ -184,7 +184,7 @@ function PlayPageInner() {
 
       await set(subRef, {
         guess: guessNum,
-        submittedAt: serverTimestamp(),
+        submittedAt: serverNow,
         elapsedMs,
         score: 0, // 관리자가 나중에 계산해서 덮어씀
       });
