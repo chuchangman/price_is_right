@@ -155,8 +155,8 @@ function PlayPageInner() {
   const handleSubmit = async () => {
     setError(null);
     const guessNum = parseInt(guess.replace(/,/g, ""), 10);
-    if (!Number.isFinite(guessNum) || guessNum <= 0 || guessNum > 1_000_000_000) {
-      setError("1원 ~ 10억 사이 숫자를 입력해주세요");
+    if (!Number.isFinite(guessNum) || guessNum <= 0 || guessNum > 1_000_000_000_000) {
+      setError("1원 ~ 1조 사이 숫자를 입력해주세요");
       return;
     }
     if (!canSubmit || !currentQuestion || !state) return;
@@ -319,7 +319,7 @@ function PlayPageInner() {
                         handleSubmit();
                       }
                     }}
-                    placeholder="숫자만 (최대 10억)"
+                    placeholder="숫자만 (최대 1조)"
                     className="w-full px-4 py-3 pr-12 bg-slate-900 rounded-lg border border-slate-600 focus:border-brand-500 focus:outline-none text-white text-xl text-right"
                     autoFocus
                   />
