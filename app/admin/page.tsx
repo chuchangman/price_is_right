@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { ref, onValue, set, get, update, remove } from "firebase/database";
+import { ref, onValue, set, get, update } from "firebase/database";
 import { db } from "@/lib/firebase";
 import {
   Category,
@@ -589,16 +589,6 @@ function GameControl({ roomCode, onExit, onLogout }: GameControlProps) {
     }
   };
 
-  const resetRoom = async () => {
-    if (!confirm("정말 이 방을 완전히 삭제할까요? 모든 점수가 사라져요.")) return;
-    try {
-      await remove(ref(db, `rooms/${roomCode}`));
-      onExit();
-    } catch (e: any) {
-      setError("삭제 실패: " + (e?.message || String(e)));
-    }
-  };
-
   // 리더보드 계산
   const leaderboard: LeaderboardEntry[] = useMemo(() => {
     const list = Object.entries(players).map(([nick, p]) => ({
@@ -805,12 +795,6 @@ function GameControl({ roomCode, onExit, onLogout }: GameControlProps) {
             </button>
           )}
 
-          <button
-            onClick={resetRoom}
-            className="px-4 py-3 bg-red-600/50 hover:bg-red-600 rounded-lg text-sm"
-          >
-            🗑 방 삭제
-          </button>
         </div>
 
         {/* 리더보드 (종료 시) */}
